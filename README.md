@@ -9,23 +9,17 @@ This project is an adaptation of the project [RESTful API Node Server Boilerplat
 Clone the repo:
 
 ```bash
-git clone --depth 1 https://github.com/antonio-lazaro/prisma-express-typescript-boilerplate.git
-cd prisma-express-typescript-boilerplate
-npx rimraf ./.git
+git clone --depth 1 https://github.com/thingdaguy/app-vo-tan.git
+cd  app-vo-tan
 ```
-
-Install the dependencies:
 
 ```bash
-yarn install
+npm ci
 ```
-
-Set the environment variables:
-
+Set environment variables:
 ```bash
 cp .env.example .env
 
-# open .env and modify the environment variables (if needed)
 ```
 
 ## Table of Contents
@@ -35,19 +29,13 @@ cp .env.example .env
   - [Table of Contents](#table-of-contents)
   - [Features](#features)
   - [Commands](#commands)
-  - [Environment Variables](#environment-variables)
-  - [Project Structure](#project-structure)
-  - [API Documentation](#api-documentation)
-    - [API Endpoints](#api-endpoints)
   - [Error Handling](#error-handling)
   - [Validation](#validation)
   - [Authentication](#authentication)
   - [Authorization](#authorization)
   - [Logging](#logging)
   - [Linting](#linting)
-  - [Contributing](#contributing)
   - [Inspirations](#inspirations)
-  - [License](#license)
 
 ## Features
 
@@ -77,140 +65,72 @@ cp .env.example .env
 Running locally:
 
 ```bash
-yarn dev
+npm run dev
 ```
 
 Running in production:
 
 ```bash
-yarn start
+npm run start
 ```
 
 Testing:
 
 ```bash
 # run all tests
-yarn test
+npm run test
 
 # run all tests in watch mode
-yarn test:watch
+npm run test:watch
 
 # run test coverage
-yarn coverage
+npm run coverage
 ```
 
 Database:
 
 ```bash
 # push changes to db
-yarn db:push
+npm run db:push
 
 # start prisma studio
-yarn db:studio
+npm run db:studio
 ```
 
 Docker:
 
 ```bash
 # run docker container in development mode
-yarn docker:dev
+npm run  docker:dev
 
 # run docker container in production mode
-yarn docker:prod
+npm run  docker:prod
 
 # run all tests in a docker container
-yarn docker:test
+npm run  docker:test
 
 # run docker container with PostgreSQL db
-yarn docker:dev-db:start
+npm run  docker:dev-db:start
 
 # stop docker container with PostgreSQL db
-yarn docker:dev-db:stop
+npm run  docker:dev-db:stop
 ```
 
 Linting:
 
 ```bash
 # run ESLint
-yarn lint
+npm run  lint
 
 # fix ESLint errors
-yarn lint:fix
+npm run  lint:fix
 
 # run prettier
-yarn prettier
+npm run  prettier
 
 # fix prettier errors
-yarn prettier:fix
+npm run  prettier:fix
 ```
-
-## Environment Variables
-
-The environment variables can be found and modified in the `.env` file. They come with these default values:
-
-```bash
-# Port number
-PORT=3000
-
-# URL of the PostgreSQL database
-DATABASE_URL=postgresql://postgres:secret@localhost:5432/mydb?schema=public
-
-# JWT
-# JWT secret key
-JWT_SECRET=thisisasamplesecret
-# Number of minutes after which an access token expires
-JWT_ACCESS_EXPIRATION_MINUTES=30
-# Number of days after which a refresh token expires
-JWT_REFRESH_EXPIRATION_DAYS=30
-
-# SMTP configuration options for the email service
-# For testing, you can use a fake SMTP service like Ethereal: https://ethereal.email/create
-SMTP_HOST=email-server
-SMTP_PORT=587
-SMTP_USERNAME=email-server-username
-SMTP_PASSWORD=email-server-password
-EMAIL_FROM=support@yourapp.com
-```
-
-## Project Structure
-
-```
-src\
- |--config\         # Environment variables and configuration related things
- |--controllers\    # Route controllers (controller layer)
- |--docs\           # Swagger files
- |--middlewares\    # Custom express middlewares
- |--routes\         # Routes
- |--services\       # Business logic (service layer)
- |--utils\          # Utility classes and functions
- |--validations\    # Request data validation schemas
- |--app.js          # Express app
- |--index.js        # App entry point
-```
-
-## API Documentation
-
-To view the list of available APIs and their specifications, run the server and go to `http://localhost:3000/v1/docs` in your browser. This documentation page is automatically generated using the [swagger](https://swagger.io/) definitions written as comments in the route files.
-
-### API Endpoints
-
-List of available routes:
-
-**Auth routes**:\
-`POST /v1/auth/register` - register\
-`POST /v1/auth/login` - login\
-`POST /v1/auth/refresh-tokens` - refresh auth tokens\
-`POST /v1/auth/forgot-password` - send reset password email\
-`POST /v1/auth/reset-password` - reset password\
-`POST /v1/auth/send-verification-email` - send verification email\
-`POST /v1/auth/verify-email` - verify email
-
-**User routes**:\
-`POST /v1/users` - create a user\
-`GET /v1/users` - get all users\
-`GET /v1/users/:userId` - get user\
-`PATCH /v1/users/:userId` - update user\
-`DELETE /v1/users/:userId` - delete user
 
 ## Error Handling
 
@@ -357,14 +277,7 @@ To prevent a certain file or directory from being linted, add it to `.eslintigno
 
 To maintain a consistent coding style across different IDEs, the project contains `.editorconfig`
 
-## Contributing
-
-Contributions are more than welcome! Please check out the [contributing guide](CONTRIBUTING.md).
-
 ## Inspirations
 
 - [RESTful API Node Server Boilerplate](https://github.com/hagopj13/node-express-boilerplate)
 
-## License
-
-[MIT](LICENSE)
